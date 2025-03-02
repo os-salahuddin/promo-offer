@@ -1,12 +1,8 @@
 <?php
 
+use App\Http\Controllers\API\V1\VersionController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'API\V1'], function () {
-    Route::get('/api/v1/version', 'VersionController@index');
-});
-
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'api/v1'], function () {
+    Route::get('version', [VersionController::class, 'index']);
 });
